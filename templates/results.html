@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Director Information</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            background-color: rgba(3, 53, 5, 0.8);
+            border-radius: 10px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color:black;
+            color: #528a09;
+        }
+        .table-row:nth-child(even) {
+            background-color: #528a09;
+        }
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th colspan="3"><h1>Director Information</h1></th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>DIN</th>
+            <th>Role</th>
+        </tr>
+        {% set processed_directors = [] %}
+        {% for info in director_details %}
+            {% if info['director'] not in processed_directors %}
+                <tr class="table-row">
+                    <td>{{ info['director'] }}</td>
+                    <td>{{ info['din'] }}</td>
+                    <td>{{ info['role'] }}</td>
+                </tr>
+                {% set _ = processed_directors.append(info['director']) %}
+            {% endif %}
+        {% endfor %}
+    </table>
+</body>
+</html>

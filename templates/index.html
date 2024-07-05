@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Text Extracter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    form {
+      background-color: black;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #021120;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #021120;
+    }
+    input[type="file"] {
+      display: none;
+    }
+    #btn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <h2>Choose the file</h2>
+    <label for="file-upload" class="btn">CHOOSE THE FILE</label>
+    <input type="file" id="file-upload" name="file" accept=".pdf"><br><br>
+    <input type="submit" name="submit" class="btn" id="btn" value="Extract">
+  </form>
+</body>
+</html>
